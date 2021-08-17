@@ -13,6 +13,11 @@ low=`echo $str|
 high=`echo $str|
       perl -lne 'print $1 if /High: (\d{1,2})/'`
 
-echo "☼ Temp "$temp"°C «Min: "$low""°C, Max: "$high""°C»"
+if [ $1 -eq 3 ]; then
+    echo "☼ Temp "$temp"°C «Min: "$low""°C, Max: "$high""°C»"
+else
+    echo "☼ Temp "$temp"°C"
+fi
+
 
 exit 0
