@@ -17,9 +17,12 @@ batMAX=`acpi -b -i | tail -n 1| perl -lne 'print $1 if /([\d]+)%$/'`
 
 batValue=`acpi -b -i |
           head -n 1  |
-          perl -lne 'print $2 if /(Unknown|Discharging|Charging), ([\d]+)%/'`
+          perl -lne 'print $2 if /(Unknown|Discharging|Charging|Full), ([\d]+)%/'`
 
-if [[ $batStatus = "Unknown" || $batStatus = "Charging" ]];then
+if [[ $batStatus = "Unknown"  || \
+      $batStatus = "Charging" || \
+      $batStatus = "Full" ]]
+then
     if [ $batValue -ge 95 ];then
         echo  "Bat: $batValue% | $batMAX%"
         echo  "" # need to echo empty spaces in order to print the color (weird)
