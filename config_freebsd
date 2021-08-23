@@ -8,20 +8,12 @@
 ################################################################################
 
 
-# Battery status with the acpi
+# Battery status 
 [battery]
 align=center
 min_width=150
-command=./battery.sh
+command=sh ~/.config/i3blocks/battery.sh
 interval=10
-
-## Guess the weather hourly
-[weather]
-align=center
-min_width=120
-command=./weather.sh $button
-interval=3600
-color=#A4C2F4
 
 ## Query my default IP address only on startup
 #[ip]
@@ -33,6 +25,6 @@ color=#A4C2F4
 [time]
 align=center
 min_width=100
-command=./date.sh $button
+command=sh ~/.config/i3blocks/date.sh $button
 interval=60
 color=#b3b3b3

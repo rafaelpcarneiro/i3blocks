@@ -1,0 +1,30 @@
+################################################################################
+#                               Global variables
+################################################################################
+
+
+################################################################################
+#                                   Widgets 
+################################################################################
+
+
+# Battery status 
+[battery]
+align=center
+min_width=150
+command=sh ~/.config/i3blocks/battery.sh
+interval=10
+
+## Query my default IP address only on startup
+#[ip]
+#command=ip a| perl -lne 'print "ip: $1" if /inet ([\d.\/]+).* wlan0/'
+#interval=once
+#color=#91E78B
+
+# Update time every 60 seconds
+[time]
+align=center
+min_width=100
+command=sh ~/.config/i3blocks/date.sh $button
+interval=60
+color=#b3b3b3
